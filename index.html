@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love You</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            color: hotpink;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .love {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            text-shadow: 0 0 15px hotpink;
+        }
+
+        .heart {
+            font-size: 110px;
+            color: pink;
+            animation: beat 1s infinite;
+            text-shadow: 0 0 25px deeppink;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="matrix"></canvas>
+
+    <div class="love">
+        LOVE YOU
+        <div class="heart">♥</div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("matrix");
+        const ctx = canvas.getContext("2d");
+
+        let width, height, columns, drops;
+        const fontSize = 16;
+        const letters = "LOVEYOUハート123456789";
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+
+            columns = Math.floor(width / fontSize);
+            drops = Array(columns).fill(1);
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = "#ff1493";
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const letter =
+                    letters[Math.floor(Math.random() * letters.length)];
+
+                ctx.fillText(
+                    letter,
+                    i * fontSize,
+                    drops[i] * fontSize
+                );
+
+                if (
+                    drops[i] * fontSize > height &&
+                    Math.random() > 0.975
+                ) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+        setInterval(drawMatrix, 50);
+    </script>
+</body>
+</html>
