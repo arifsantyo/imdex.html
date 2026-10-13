@@ -1,108 +1,290 @@
-<!DOCTYPE html>
+offline topics<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love You</title>
+    <title>About Me - Biodata Mahasiswa</title>
 
     <style>
-        body {
+        * {
             margin: 0;
-            background: black;
-            color: hotpink;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            overflow: hidden;
-            height: 100vh;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #173b57;
+            color: white;
+            padding: 20px 8%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
-        canvas {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
+        header h2 {
+            font-size: 24px;
         }
 
-        .love {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            font-size: 25px;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
             font-weight: bold;
-            text-shadow: 0 0 15px hotpink;
         }
 
-        .heart {
-            font-size: 110px;
-            color: pink;
-            animation: beat 1s infinite;
-            text-shadow: 0 0 25px deeppink;
+        nav a:hover {
+            color: #62d6c5;
         }
 
-        @keyframes beat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
+        .hero {
+            background: linear-gradient(135deg, #173b57, #287b89);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .profile {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 5px solid #62d6c5;
+}
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 35px auto;
+        }
+
+        section {
+            background-color: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+        }
+
+        section h2 {
+            color: #173b57;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #62d6c5;
+            padding-bottom: 8px;
+        }
+
+        .biodata {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 10px;
+        }
+
+        .biodata strong {
+            color: #173b57;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skills span {
+            background-color: #e1f5f2;
+            color: #173b57;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .contact a {
+            display: inline-block;
+            margin: 8px 10px 0 0;
+            padding: 10px 18px;
+            background-color: #173b57;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .contact a:hover {
+            background-color: #287b89;
+        }
+
+        footer {
+            background-color: #173b57;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .biodata {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+
+            .biodata p {
+                margin-bottom: 8px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <canvas id="matrix"></canvas>
 
-    <div class="love">
-        LOVE YOU
-        <div class="heart">♥</div>
+    <header>
+        <h2>About Me</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#pendidikan">Pendidikan</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <img src="profil.jpg"
+     alt="Foto Profil"
+     class="profile">
+
+        <h1>Arifsantyo tanga teul kapu</h1>
+
+        <p>Mahasiswa Sistem Informasi</p>
+        <p>Universitas Advent Indonesia</p>
     </div>
 
-    <script>
-        const canvas = document.getElementById("matrix");
-        const ctx = canvas.getContext("2d");
+    <main class="container">
 
-        let width, height, columns, drops;
-        const fontSize = 16;
-        const letters = "LOVEYOUハート123456789";
+        <section id="about">
+            <h2>Tentang Saya</h2>
 
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+            <p>
+                Halo, perkenalkan nama saya Arifsantyo tanga terul kapu.
+                Saya adalah mahasiswa Program Studi Sistem Informasi
+                di Universitas Advent Indonesia. Saya tertarik dengan
+                dunia teknologi, komputer, dan pengembangan website.
+                Saya ingin terus belajar dan meningkatkan kemampuan
+                saya dalam bidang teknologi informasi.
+            </p>
+        </section>
 
-            columns = Math.floor(width / fontSize);
-            drops = Array(columns).fill(1);
-        }
+        <section>
+            <h2>Biodata Diri</h2>
 
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
-            ctx.fillRect(0, 0, width, height);
+            <div class="biodata">
+                <strong>Nama</strong>
+                <p>Arifsantyo tanga teul kapu</p>
 
-            ctx.fillStyle = "#ff1493";
-            ctx.font = fontSize + "px monospace";
+                <strong>NIM</strong>
+                <p>2582021</p>
 
-            for (let i = 0; i < drops.length; i++) {
-                const letter =
-                    letters[Math.floor(Math.random() * letters.length)];
+                <strong>Program Studi</strong>
+                <p>Sistem Informasi</p>
 
-                ctx.fillText(
-                    letter,
-                    i * fontSize,
-                    drops[i] * fontSize
-                );
+                <strong>Fakultas</strong>
+                <p>Fakultas Teknologi Informasi</p>
 
-                if (
-                    drops[i] * fontSize > height &&
-                    Math.random() > 0.975
-                ) {
-                    drops[i] = 0;
-                }
+                <strong>Universitas</strong>
+                <p>Universitas Advent Indonesia</p>
 
-                drops[i]++;
-            }
-        }
+                <strong>Hobi</strong>
+                <p>bernyanyi dan makan</p>
 
-        resizeCanvas();
-        window.addEventListener("resize", resizeCanvas);
-        setInterval(drawMatrix, 50);
-    </script>
+                <strong>Cita-cita</strong>
+                <p>Menjadi seorang profesional di bidang IT</p>
+            </div>
+        </section>
+
+        <section id="pendidikan">
+            <h2>Pendidikan</h2>
+
+            <h3>Universitas Advent Indonesia</h3>
+
+            <p>
+                Program Studi Sistem Informasi
+            </p>
+
+            <p>
+                Mempelajari pemrograman, basis data, pengembangan
+                website, serta penerapan teknologi informasi
+                untuk membantu menyelesaikan berbagai masalah.
+            </p>
+        </section>
+
+    
+
+        <section id="kontak" class="contact">
+            <h2>Kontak Saya</h2>
+
+            <p>
+                Terima kasih telah mengunjungi website biodata saya.
+                Silakan hubungi saya melalui media sosial berikut.
+            </p>
+
+            <a href=https://instagram.com/tiokapu_?psln=MXhiODR3N3B6Y3g3OQ%3D%3D target="_blank">
+                Instagram
+            </a>
+            <a href="https://wa.me/6281239951853" target="_blank">
+                WhatsApp
+            </a>
+
+            <a href="https://fti.unai.edu/" target="_blank">
+                Website FTI UNAI
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 About Me | Website Biodata Mahasiswa</p>
+    </footer>
+
 </body>
 </html>
